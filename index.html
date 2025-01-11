@@ -406,36 +406,49 @@
     </main>
 
     <script>
+    // Select the 'equal' button, which performs the calculation when clicked.
         const equal = document.getElementById('equal');
 
+        // Define a function to evaluate the mathematical expression in the display.
         function calculate() {
             try {
+                // Use the `eval` function to evaluate the current value in the display.
                 display.value = eval(display.value);
             } catch (error) {
-                display.value = "Error"; 
+                // If an error occurs (e.g., invalid expression), set the display value to "Error".
+                display.value = "Error";
             }
         }
 
+        // Add a click event listener to the 'equal' button to trigger the calculation.
         equal.addEventListener('click', calculate);
 
-        document.addEventListener('DOMContentLoaded', function() {
+        // Wait for the DOM content to fully load before executing the following code.
+        document.addEventListener('DOMContentLoaded', function () {
 
+            // Add a click event listener to the theme switch checkbox.
             document.querySelector('.theme-switch__checkbox').addEventListener('click', () => {
 
-                document.body.classList.toggle('dark')
-                document.querySelector('.form').classList.toggle('dark')
-                document.getElementById('display').classList.toggle('display-dark')
+                // Toggle the 'dark' class on the body element to switch between light and dark themes.
+                document.body.classList.toggle('dark');
 
+                // Toggle the 'dark' class on the form container to change its theme style.
+                document.querySelector('.form').classList.toggle('dark');
+
+                // Toggle the 'display-dark' class on the display input to update its theme.
+                document.getElementById('display').classList.toggle('display-dark');
+
+                // Loop through all elements with the 'btn' class and toggle the 'btn-dark' class.
                 document.querySelectorAll('.btn').forEach((inputBtn) => {
                     inputBtn.classList.toggle('btn-dark');
-                
                 });
-                
+
+                // Loop through all elements with the 'operator' class and toggle the 'operator-dark' class.
                 document.querySelectorAll('.operator').forEach((operatorBtn) => {
                     operatorBtn.classList.toggle('operator-dark');
-                })
+                });
             });
-        })
+        });
     </script>
 </body>
 </html>
